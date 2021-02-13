@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * Chaque constante contient l'information nécessaire pour décrire le phonème.
  *
  * @since 15
- */
+ */ 
 public enum API_Consonne {
     API_101( 0x0070, ModeArticulation.OCCLUSIF, PointArticulationConsonne.BILABIAL, Phonation.SOURDE,
             Cavite.ORALE, Ecoulement.CENTRALE, Flux.PULMONAIRE ),
