@@ -3,6 +3,7 @@ package INF2120.API;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -64,6 +65,18 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
                 scanner.next( SEPARATEUR );
             }
         } catch( NoSuchElementException e ) {
+        }
+    }
+
+    /**
+     * Calcule l'occurence de chacune des syllabes du TexteSonore.
+     *
+     * Utilise la méthode occurenceSyllabe de SyllabeFrancais
+     *
+     */
+    public void occurenceSyllabe(){
+        for(int i = 0; i < this.size(); ++i){
+            this.get(i).occurenceSyllabe(this);
         }
     }
 

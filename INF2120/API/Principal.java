@@ -62,11 +62,18 @@ public class Principal {
         String nomFichier = demanderNomFichier( scanner );
         int nombreDeSyllabes = demanderNombreDeSyllabe( scanner );
 
+
         scanner.close();
 
         TexteSonore texteSonore = new TexteSonore( nomFichier );
 
         // placer vos actions ici :
+
+        // Calcul de l'occurence pour chacune des syllabes
+        texteSonore.occurenceSyllabe();
+
+
+
 
 
         // cette partie du code affiche les résultats, modifier au besoin.

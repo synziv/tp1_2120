@@ -135,6 +135,9 @@ public class VoyelleFrancais {
     }
 
 
+
+
+
     /**
      * retourne une chaîne de caractère composée des voyelles du groupe.
      *

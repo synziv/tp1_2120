@@ -1,7 +1,6 @@
 package INF2120.API;
 
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -32,6 +31,16 @@ public class SyllabeFrancais {
      */
     protected ConsonneFrancais coda = null;
 
+
+    /**
+     * Le nombre d'occurences de cette syllabe dans un TexteSonore. Est incrémenté lors de l'appel de la méthode
+     * occurenceSyllabe.
+     */
+    private int nombreOccurences =0;
+
+    public int getNombreOccurences() {
+        return nombreOccurences;
+    }
 
     /**
      * Construit une syllabe avec un noyau seulement.
@@ -112,6 +121,131 @@ public class SyllabeFrancais {
 
         return new SyllabeFrancais( attaque, noyau, coda );
     }
+
+
+
+    /**
+     * Compare l'attaque entre 2 syllabes en vérifiant si la consonne1 et la consonne2 sont égales.
+     *
+     * Permet de contourner le @NullPointerException lancé par la méthode .equals().
+     *
+     * @param syllabe1 instance SyllabeFrancais à comparer avec syllabe2
+     * @param syllabe2 instance SyllabeFrancais à comparer avec syllabe1
+     *
+     * @return true si les 2 consonnes sont les mêmes dans les 2 syllabes
+     */
+    private boolean comparaisonAttaque(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        boolean estPareil = false;
+        boolean consonne1Pareille = false;
+        boolean consonne2Pareille = false;
+
+        if(syllabe1.attaque != null && syllabe2.attaque != null){
+
+            consonne1Pareille = syllabe1.attaque.consonne1.equals(syllabe2.attaque.consonne1);
+
+            if(syllabe1.attaque.consonne2 != null && syllabe2.attaque.consonne2 != null){
+                consonne2Pareille = syllabe1.attaque.consonne2.equals(syllabe2.attaque.consonne2);
+            }else{
+                consonne2Pareille = (syllabe1.attaque.consonne2 == null && syllabe2.attaque.consonne2 == null);
+            }
+            estPareil = consonne1Pareille && consonne2Pareille;
+
+
+        }else {
+            estPareil = (syllabe1.attaque == null && syllabe2.attaque == null);
+        }
+        return estPareil;
+    }
+
+    /**
+     * Compare le noyau de 2 syllabes en vérifiant si la voyelle et la semiVoyelle sont égales, est si
+     * elles ont la même nasalité.
+     *
+     * Permet de contourner le @NullPointerException lancé par la méthode .equals().
+     *
+     * @param syllabe1 instance SyllabeFrancais à comparer avec syllabe2
+     * @param syllabe2 instance SyllabeFrancais à comparer avec syllabe1
+     *
+     * @return true si les 2 consonnes sont les mêmes dans les 2 syllabes
+     */
+    private boolean comparaisonNoyau(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        boolean estPareil = false;
+        boolean voyellePareille = false;
+        boolean semiVoyellePareille = false;
+        boolean memeNasalite = false;
+
+        voyellePareille = (syllabe1.noyau.voyelle.equals(syllabe2.noyau.voyelle));
+
+        if(syllabe1.noyau.semiVoyelle != null && syllabe2.noyau.semiVoyelle != null){
+            semiVoyellePareille = syllabe1.noyau.semiVoyelle.equals(syllabe2.noyau.semiVoyelle);
+        }else{
+            semiVoyellePareille = (syllabe1.noyau.semiVoyelle == null && syllabe2.noyau.semiVoyelle == null);
+        }
+
+        memeNasalite = ((syllabe1.noyau.estNasal() && syllabe2.noyau.estNasal()) ||
+                !syllabe1.noyau.estNasal() && !syllabe2.noyau.estNasal());
+
+
+        estPareil = memeNasalite && voyellePareille && semiVoyellePareille;
+
+        return estPareil;
+    }
+
+    /**
+     * Compare le coda entre 2 syllabes en vérifiant si la consonne1 et la consonne2 sont égales.
+     *
+     * Permet de contourner le @NullPointerException lancé par la méthode .equals().
+     *
+     * @param syllabe1 instance SyllabeFrancais à comparer avec syllabe2
+     * @param syllabe2 instance SyllabeFrancais à comparer avec syllabe1
+     *
+     * @return true si les 2 consonnes sont les mêmes dans les 2 syllabes
+     */
+    private boolean comparaisonCoda(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        boolean estPareil = false;
+        boolean consonne1Pareille = false;
+        boolean consonne2Pareille = false;
+
+        if(syllabe1.coda != null && syllabe2.coda != null){
+
+            consonne1Pareille = syllabe1.coda.consonne1.equals(syllabe2.coda.consonne1);
+
+            if(syllabe1.coda.consonne2 != null && syllabe2.coda.consonne2 != null){
+                consonne2Pareille = syllabe1.coda.consonne2.equals(syllabe2.coda.consonne2);
+            }else{
+                consonne2Pareille = (syllabe1.coda.consonne2 == null && syllabe2.coda.consonne2 == null);
+            }
+
+            estPareil = consonne1Pareille && consonne2Pareille;
+
+        }else {
+            estPareil = (syllabe1.coda == null && syllabe2.coda == null);
+        }
+
+        return estPareil;
+    }
+
+    /**
+     * Calcule le nombre d'occurence de la syllabe dans un TexteSonore{@code texte}
+     *
+     * Utilise les méthodes comparaisonAttaque, comparaisonCoda et comparaisonNoyau
+     *
+     * @param texte Le TexteSonore dans lequel on compte.
+     */
+
+    public void occurenceSyllabe(TexteSonore texte){
+
+           for(int i = 0; i < texte.size(); ++i){
+               if(comparaisonAttaque(this, texte.get(i))&& comparaisonCoda(this, texte.get(i)) &&
+               comparaisonNoyau(this, texte.get(i))){
+                   nombreOccurences ++;
+               }
+           }
+    }
+
 
 
     /**
