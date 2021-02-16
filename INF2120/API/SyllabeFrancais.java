@@ -159,7 +159,7 @@ public class SyllabeFrancais {
     }
 
     /**
-     * Compare le noyau de 2 syllabes en vérifiant si la voyelle et la semiVoyelle sont égales, est si
+     * Compare le noyau de 2 syllabes en vérifiant si la voyelle et la semiVoyelle sont égales, et si
      * elles ont la même nasalité.
      *
      * Permet de contourner le @NullPointerException lancé par la méthode .equals().
@@ -231,7 +231,8 @@ public class SyllabeFrancais {
     /**
      * Calcule le nombre d'occurence de la syllabe dans un TexteSonore{@code texte}
      *
-     * Utilise les méthodes comparaisonAttaque, comparaisonCoda et comparaisonNoyau
+     * Utilise la méthode estPareille. Si la syllabe est pareille, this.nombreOccurences
+     * est incremente.
      *
      * @param texte Le TexteSonore dans lequel on compte.
      */
@@ -239,11 +240,34 @@ public class SyllabeFrancais {
     public void occurenceSyllabe(TexteSonore texte){
 
            for(int i = 0; i < texte.size(); ++i){
-               if(comparaisonAttaque(this, texte.get(i))&& comparaisonCoda(this, texte.get(i)) &&
-               comparaisonNoyau(this, texte.get(i))){
+               if(estPareille(this, texte.get(i))){
                    nombreOccurences ++;
                }
            }
+    }
+
+    /**
+     * Compare les deux syllabes prises en argument pour s'assurer qu'elles sont pareilles.
+     *
+     * Utilise les méthodes comparaisonAttaque, comparaisonCoda et comparaisonNoyau
+     *
+     * @param syllabe1 Syllabe à comparer avec syllabe2
+     * @param syllabe2 Syllabe à comparer avec syllabe1
+     * @return true si l'attaque, le noyau et le coda sont identiques.
+     */
+    public boolean estPareille(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        return comparaisonAttaque(syllabe1, syllabe2)&& comparaisonCoda(syllabe1, syllabe2) &&
+                comparaisonNoyau(syllabe1, syllabe2);
+    }
+
+
+
+
+
+    // À COMPLÉTER
+    public int distance(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+        return 0;
     }
 
 

@@ -2,10 +2,7 @@ package INF2120.API;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -74,11 +71,64 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
      * Utilise la méthode occurenceSyllabe de SyllabeFrancais
      *
      */
-    public void occurenceSyllabe(){
-        for(int i = 0; i < this.size(); ++i){
-            this.get(i).occurenceSyllabe(this);
+    public void occurenceSyllabes(){
+        for(int i = 0; i < size(); ++i){
+            get(i).occurenceSyllabe(this);
         }
     }
+
+    /**
+     * Copie le texte sonore dans un nouveau texte sonore.
+     * @return Une copie du textesonore
+     */
+    public TexteSonore copier(){
+        TexteSonore copie = new TexteSonore();
+            copie.addAll(this);
+        return copie;
+    }
+
+    /**
+     * Copie ce TexteSonore en éliminant les doublons.
+     *
+     * Cela facilite la comparaison de distance entre chacune des syllabes.
+     *
+     * @return Une copie du TexteSonore sans doublon.
+     */
+    public TexteSonore sansDoublon() {
+
+        TexteSonore copie = new TexteSonore();
+
+        copie = copier();
+
+        for(int i = 0; i < this.size(); ++i){
+            for(int j = 0; j < copie.size(); ++j){
+                if(this.get(i).estPareille(copie.get(j), this.get(i))){
+                    copie.remove(j);
+                }
+            }
+            copie.add(this.get(i));
+        }
+        return copie;
+    }
+
+    /**
+     * Compte le nombre de syllabes différentes dans le texteSonore
+     *
+     * @return Le .size() du TexteSonore sansDoublon.
+     */
+    public int nombreSyllabesDifferentes(){
+        return sansDoublon().size();
+    }
+
+    // À COMPLÉTER
+    public void plusPetiteDistance(){
+    }
+
+    // À COMPLÉTER
+    public void reduire(){
+    }
+
+
 
 
     /**
