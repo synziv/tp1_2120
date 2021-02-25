@@ -240,7 +240,7 @@ public class SyllabeFrancais {
     public void occurenceSyllabe(TexteSonore texte){
 
            for(int i = 0; i < texte.size(); ++i){
-               if(estPareille(this, texte.get(i))){
+               if(this.estPareille(texte.get(i))){
                    nombreOccurences ++;
                }
            }
@@ -251,14 +251,12 @@ public class SyllabeFrancais {
      *
      * Utilise les méthodes comparaisonAttaque, comparaisonCoda et comparaisonNoyau
      *
-     * @param syllabe1 Syllabe à comparer avec syllabe2
-     * @param syllabe2 Syllabe à comparer avec syllabe1
+     * @param syllabe Syllabe avec laquelle comparer avec
      * @return true si l'attaque, le noyau et le coda sont identiques.
      */
-    public boolean estPareille(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
-
-        return comparaisonAttaque(syllabe1, syllabe2)&& comparaisonCoda(syllabe1, syllabe2) &&
-                comparaisonNoyau(syllabe1, syllabe2);
+    public boolean estPareille(SyllabeFrancais syllabe){
+        return comparaisonAttaque(this, syllabe)&& comparaisonCoda(this, syllabe) &&
+                comparaisonNoyau(this, syllabe);
     }
 
 
@@ -266,10 +264,10 @@ public class SyllabeFrancais {
 
 
     // À COMPLÉTER
-    public int distance(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+    public int distance(SyllabeFrancais syllabe){
         return 0;
     }
-
 
 
     /**
@@ -283,4 +281,6 @@ public class SyllabeFrancais {
                 + noyau
                 + ( null == coda ? "" : coda );
     }
+
+
 }

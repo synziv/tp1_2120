@@ -44,6 +44,8 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
         scanner.close();
     }
 
+    public TexteSonore sansDoublon;
+
 
     /**
      * Lit une suite de syllabe dans le {@code Scanner}.
@@ -94,21 +96,21 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
      *
      * @return Une copie du TexteSonore sans doublon.
      */
-    public TexteSonore sansDoublon() {
+    public void eliminerDoublon() {
 
-        TexteSonore copie = new TexteSonore();
+        TexteSonore copie;
 
         copie = copier();
 
         for(int i = 0; i < this.size(); ++i){
             for(int j = 0; j < copie.size(); ++j){
-                if(this.get(i).estPareille(copie.get(j), this.get(i))){
+                if(this.get(i).estPareille(copie.get(j))){
                     copie.remove(j);
                 }
             }
             copie.add(this.get(i));
         }
-        return copie;
+        sansDoublon = copie;
     }
 
     /**
@@ -117,17 +119,53 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
      * @return Le .size() du TexteSonore sansDoublon.
      */
     public int nombreSyllabesDifferentes(){
-        return sansDoublon().size();
+        return sansDoublon.size();
     }
 
-    // À COMPLÉTER
-    public void plusPetiteDistance(){
-    }
 
-    // À COMPLÉTER
+    /**
+     * Compte le nombre de syllabes différentes dans le texteSonore
+     *
+     * @return Le .size() du TexteSonore sansDoublon.
+     */
     public void reduire(){
+
+        SyllabeFrancais syllabe1 = sansDoublon.get(0);
+        SyllabeFrancais syllabe2 = sansDoublon.get(1);
+        int distance = 42;
+
+        for(int i = 0; i < sansDoublon.size(); ++i){
+            for(int j = 0; j < sansDoublon.size(); ++j){
+                if(!sansDoublon.get(i).estPareille(sansDoublon.get(j))){
+                    if(sansDoublon.get(i).distance(sansDoublon.get(j)) <= distance){
+                        syllabe1 = sansDoublon.get(i);
+                        syllabe2 = sansDoublon.get(j);
+                    }
+                }
+            }
+        }
+        echanger(syllabe1, syllabe2);
     }
 
+    public void echanger(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        SyllabeFrancais syllabeGardee;
+        SyllabeFrancais syllabeChangee;
+
+        if(syllabe1.getNombreOccurences()>syllabe2.getNombreOccurences()){
+            syllabeGardee = syllabe1;
+            syllabeChangee = syllabe2;
+        }else{
+            syllabeGardee = syllabe2;
+            syllabeChangee = syllabe1;
+        }
+
+        for(int i = 0; i <size(); ++i){
+            if(this.get(i).estPareille(syllabeChangee)){
+                this.set(i,syllabeGardee);
+            }
+        }
+    }
 
 
 

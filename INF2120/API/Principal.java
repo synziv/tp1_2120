@@ -68,18 +68,26 @@ public class Principal {
         TexteSonore texteSonore = new TexteSonore(nomFichier);
 
         // placer vos actions ici :
+
+
+
+        //(while texteSonore.nombreSyllabes differentes != nombreDeSyllabes....)
         System.out.println("\n\nTexte sonore original: " + texteSonore);
 
         // Calcul de l'occurence pour chacune des syllabes
         texteSonore.occurenceSyllabes();
 
         // Création d'un nouveau Texte éliminant les doublons
-        TexteSonore sansDoublon;
-        sansDoublon = texteSonore.sansDoublon();
+        texteSonore.eliminerDoublon();
+        texteSonore.reduire();
 
         // Print du sansDoublon, et du nombre de syllabes différentes
-        System.out.println("Texte sans doublon: " + sansDoublon);
+        System.out.println("Texte sans doublon: " + texteSonore.sansDoublon);
         System.out.println("Nombre syllabes distinctes: " + texteSonore.nombreSyllabesDifferentes());
+        System.out.println("Occurence de chacune d'entre elles: ");
+        for(int i = 0; i < texteSonore.sansDoublon.size(); ++i){
+            System.out.println(texteSonore.sansDoublon.get(i)+": "+texteSonore.sansDoublon.get(i).getNombreOccurences());
+        }
 
 
 
