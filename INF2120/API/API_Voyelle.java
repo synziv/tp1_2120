@@ -103,6 +103,19 @@ public enum API_Voyelle {
         return codePoint;
     }
 
+    /** Calcule la distance entre 2 voyelles
+     *  @param voyelle1 API_Voyelle avec laquelle calculer la distance de l'instance
+     *  @return la distance entre l'instance d' API_Voyelle et une autre API_Voyelle
+     * */
+    public int calculDistanceVoyelle(API_Voyelle voyelle1){
+        boolean[] caractSonoresV1 = {voyelle1.estArriere(), voyelle1.estArrondi(), voyelle1.estHaut(), voyelle1.estOuverte()};
+        boolean[] caractSonoresV2 = {this.estArriere(), this.estArrondi(), this.estHaut(), this.estOuverte()};
+        int distance =0;
+        for(int i=0; i<caractSonoresV1.length; i++){
+            if(caractSonoresV1[i] != caractSonoresV2[i]) distance++;
+        }
+        return distance;
+    }
 
     /**
      * Indique si la voyelle a la caractéristique sonore 'arrière'.

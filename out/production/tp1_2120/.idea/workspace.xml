@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5097e716-4ee4-475f-bfa5-a966edec8901" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/INF2120/API/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/tp1_2120/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/tp1_2120/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/API_Consonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/API_Consonne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/API_Voyelle.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/API_Voyelle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Cavite.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Cavite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/ConsonneFrancais.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/ConsonneFrancais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Constantes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Ecoulement.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Ecoulement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Erreur.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Erreur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Flux.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Flux.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/ModeArticulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/ModeArticulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Ouverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Ouverture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Phonation.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Phonation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/PointArticulationConsonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/PointArticulationConsonne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/PointArticulationVoyelle.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/PointArticulationVoyelle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Rondeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Rondeur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/SyllabeFrancais.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/SyllabeFrancais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/TexteSonore.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/TexteSonore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/Textes.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/Textes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INF2120/API/VoyelleFrancais.java" beforeDir="false" afterPath="$PROJECT_DIR$/INF2120/API/VoyelleFrancais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/API_Consonne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/API_Consonne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/API_Voyelle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/API_Voyelle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Cavite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Cavite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/ConsonneFrancais.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/ConsonneFrancais.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Constantes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Constantes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Ecoulement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Ecoulement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Erreur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Erreur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Flux.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Flux.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/ModeArticulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/ModeArticulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Ouverture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Ouverture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Phonation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Phonation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/PointArticulationConsonne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/PointArticulationConsonne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/PointArticulationVoyelle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/PointArticulationVoyelle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Principal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Rondeur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Rondeur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/SyllabeFrancais.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/SyllabeFrancais.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/TexteSonore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/TexteSonore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Textes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/Textes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/VoyelleFrancais.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp1_2120/INF2120/API/VoyelleFrancais.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ozEesOK41znGBWnbhhkJM7M54h" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\tp1_2120\INF2120\API" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="INF2120.API" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Principal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="INF2120.API.Principal" />
+      <module name="tp1_2120" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="INF2120.API.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Principal" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5097e716-4ee4-475f-bfa5-a966edec8901" name="Default Changelist" comment="" />
+      <created>1614281116419</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614281116419</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -79,6 +79,22 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Copie le texte sonore dans un nouveau texte sonore.
      * @return Une copie du textesonore
@@ -137,7 +153,7 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
         for(int i = 0; i < sansDoublon.size(); ++i){
             for(int j = 0; j < sansDoublon.size(); ++j){
                 if(!sansDoublon.get(i).estPareille(sansDoublon.get(j))){
-                    if(sansDoublon.get(i).distance(sansDoublon.get(j)) <= distance){
+                    if(sansDoublon.get(i).calculDistance(sansDoublon.get(j)) <= distance){
                         syllabe1 = sansDoublon.get(i);
                         syllabe2 = sansDoublon.get(j);
                     }
