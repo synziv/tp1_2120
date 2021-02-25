@@ -12,9 +12,7 @@ import java.util.stream.Collectors;
  * Chaque constante contient l'information nécessaire pour décrire le phonème.
  *
  * @since 15
- */
-
-
+ */ 
 public enum API_Consonne {
     API_101( 0x0070, ModeArticulation.OCCLUSIF, PointArticulationConsonne.BILABIAL, Phonation.SOURDE,
             Cavite.ORALE, Ecoulement.CENTRALE, Flux.PULMONAIRE ),
@@ -248,6 +246,22 @@ public enum API_Consonne {
         return codePoint;
     }
 
+    /**
+     * Calcule la distance entre 2 consonnes
+     * @param consonne1 API_Consonne avec laquelle calculer la distance de l'instance
+     * @return la distance entre l'instance de API_Consonne et une autre API_Consonne
+     * */
+    public int calculDistanceConsonne(API_Consonne consonne1){
+        boolean[] caractSonoresC1 = {consonne1.estAigu(), consonne1.estContinu(),
+                consonne1.estCompact(), consonne1.estNasal(), consonne1.estVocalique(), consonne1.estVoise()};
+        boolean[] caractSonoresC2 = {this.estAigu(), this.estContinu(),
+                this.estCompact(), this.estNasal(), this.estVocalique(), this.estVoise()};
+        int distance =0;
+        for(int i=0; i<caractSonoresC1.length; i++){
+            if(caractSonoresC1[i] != caractSonoresC2[i]) distance++;
+        }
+        return distance;
+    }
 
     /**
      * Indique si la consonne a la caractéristique sonore 'vocalique'.

@@ -32,6 +32,7 @@ public class SyllabeFrancais {
     protected ConsonneFrancais coda = null;
 
 
+
     /**
      * Le nombre d'occurences de cette syllabe dans un TexteSonore. Est incrémenté lors de l'appel de la méthode
      * occurenceSyllabe.
@@ -88,7 +89,6 @@ public class SyllabeFrancais {
         this.noyau = noyau;
         this.coda = coda;
     }
-
 
     /**
      * Lit une syllabe dans le {@code Scanner}.
@@ -246,6 +246,7 @@ public class SyllabeFrancais {
            }
     }
 
+
     /**
      * Compare les deux syllabes prises en argument pour s'assurer qu'elles sont pareilles.
      *
@@ -259,14 +260,29 @@ public class SyllabeFrancais {
                 comparaisonNoyau(this, syllabe);
     }
 
-
-
-
-
-    // À COMPLÉTER
-
-    public int distance(SyllabeFrancais syllabe){
-        return 0;
+    /**
+     * Calcule la distance entre la syllabe de l'instance et une autre instance de SyllabeFrancais
+     * @param s1 SyllabeFrancais avec laquelle calculer la distance de l'instance
+     * @return un int de la distance entre les 2 syllabes
+     * */
+    public int calculDistance(SyllabeFrancais s1){
+        //calule la distance entre 2 attaques
+        int distanceAttaque=0;
+        int distanceNoyau= this.noyau.calculDistanceGroupeVoyelle(s1.noyau);
+        int distanceCoda=0;
+        if(s1.attaque!=null && this.attaque!=null)
+            distanceAttaque = this.attaque.calculDistanceGroupeConsonne(s1.attaque);
+        else{
+            if(s1.attaque!=null && this.attaque==null || s1.attaque==null && this.attaque!=null)
+                distanceAttaque=42;
+        }
+        if(s1.coda!=null && this.coda!=null)
+            distanceCoda = this.coda.calculDistanceGroupeConsonne(s1.coda);
+        else{
+            if(s1.coda!=null && this.coda==null || s1.coda==null && this.coda!=null)
+                distanceCoda=42;
+        }
+        return distanceAttaque + 2*distanceNoyau + distanceCoda;
     }
 
 

@@ -43,7 +43,6 @@ public class VoyelleFrancais {
      */
     protected boolean nasal = false;
 
-
     /**
      * Construit une voyelle simple.
      *
@@ -74,7 +73,6 @@ public class VoyelleFrancais {
         this.semiVoyelle = semiVoyelle;
         this.voyelle = voyelle;
     }
-
     /**
      * Construit un groupe de voyelle avec deux voyelles, avec la possibilité de lui attribuer la caractéristique
      * nasale.
@@ -98,6 +96,23 @@ public class VoyelleFrancais {
         return nasal;
     }
 
+    /**
+     * Calcule la distance entre le groupe de voyelles de l'instance et un autre groupe de voyelle
+     * @param vf1 VoyelleFrancais avec laquelle calculer la distance de l'instance
+     * @return un int de la distance entre les 2 groupes de voyelles
+     * */
+    public int calculDistanceGroupeVoyelle(VoyelleFrancais vf1){
+        int distanceEntreVf=this.voyelle.calculDistanceVoyelle(vf1.voyelle);
+
+        if(vf1.semiVoyelle != null && this.semiVoyelle != null)
+            distanceEntreVf += this.semiVoyelle.calculDistanceVoyelle(vf1.semiVoyelle);
+        else if(vf1.semiVoyelle == null && this.semiVoyelle != null || vf1.semiVoyelle != null && this.semiVoyelle == null)
+            distanceEntreVf += 4;
+
+        if(vf1.estNasal() || this.estNasal())
+            distanceEntreVf+=1;
+        return  distanceEntreVf;
+    }
 
     /**
      * Lit un groupe de voyelles dans le {@code Scanner}.
@@ -143,8 +158,6 @@ public class VoyelleFrancais {
     }
 
 
-
-
     /**
      * retourne une chaîne de caractère composée des voyelles du groupe.
      *
@@ -154,7 +167,6 @@ public class VoyelleFrancais {
     public String toString() {
         return "" + ( null == semiVoyelle ? "" : semiVoyelle )
                 + ( nasal ? Character.toString( TILDE_CODE_POINT ) : "" )
-                + voyelle
-                ;
+                + voyelle;
     }
 }
