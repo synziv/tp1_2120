@@ -111,7 +111,7 @@ public enum API_Voyelle {
         boolean[] caractSonoresV1 = {voyelle1.estArriere(), voyelle1.estArrondi(), voyelle1.estHaut(), voyelle1.estOuverte()};
         boolean[] caractSonoresV2 = {this.estArriere(), this.estArrondi(), this.estHaut(), this.estOuverte()};
         int distance =0;
-        for(int i=1; i<caractSonoresV1.length; i++){
+        for(int i=0; i<caractSonoresV1.length; i++){
             if(caractSonoresV1[i] != caractSonoresV2[i]) distance++;
         }
         return distance;

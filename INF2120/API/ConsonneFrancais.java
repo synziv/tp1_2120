@@ -59,8 +59,10 @@ public class ConsonneFrancais {
 
         if(cf1.consonne2 != null && this.consonne2 != null)
             distanceEntreCf += this.consonne2.calculDistanceConsonne(cf1.consonne2);
-        else
-            distanceEntreCf+=6;
+        else if(cf1.consonne2 == null && this.consonne2 != null || cf1.consonne2 != null && this.consonne2 == null)
+                distanceEntreCf+=6;
+
+
 
         return  distanceEntreCf;
     }

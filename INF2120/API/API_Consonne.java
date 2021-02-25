@@ -257,7 +257,7 @@ public enum API_Consonne {
         boolean[] caractSonoresC2 = {this.estAigu(), this.estContinu(),
                 this.estCompact(), this.estNasal(), this.estVocalique(), this.estVoise()};
         int distance =0;
-        for(int i=1; i<caractSonoresC1.length; i++){
+        for(int i=0; i<caractSonoresC1.length; i++){
             if(caractSonoresC1[i] != caractSonoresC2[i]) distance++;
         }
         return distance;

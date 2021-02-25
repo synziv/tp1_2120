@@ -103,10 +103,12 @@ public class VoyelleFrancais {
      * */
     public int calculDistanceGroupeVoyelle(VoyelleFrancais vf1){
         int distanceEntreVf=this.voyelle.calculDistanceVoyelle(vf1.voyelle);
+
         if(vf1.semiVoyelle != null && this.semiVoyelle != null)
             distanceEntreVf += this.semiVoyelle.calculDistanceVoyelle(vf1.semiVoyelle);
-        else
+        else if(vf1.semiVoyelle == null && this.semiVoyelle != null || vf1.semiVoyelle != null && this.semiVoyelle == null)
             distanceEntreVf += 4;
+
         if(vf1.estNasal() || this.estNasal())
             distanceEntreVf+=1;
         return  distanceEntreVf;
@@ -126,19 +128,27 @@ public class VoyelleFrancais {
      * @exception NoSuchElementException s'il n'y a pas de {@code API_Voyelle} valide.
      * @exception IllegalStateException si le {@code Scanner} est fermé.
      */
-    public static VoyelleFrancais lire( Scanner scanner ) {
-        API_Voyelle voyelle = API_Voyelle.lire( scanner );
+    public static VoyelleFrancais lire(Scanner scanner ) {
+        API_Voyelle voyelle = null;
         API_Voyelle voyelle2 = null;
         boolean estNasal = false;
 
         try {
-            voyelle2 = API_Voyelle.lire( scanner );
+            scanner.next( TILDE_PATTERN );
+            estNasal = true;
         } catch ( NoSuchElementException e ) {
         }
+
+        voyelle = API_Voyelle.lire( scanner );
 
         try {
             scanner.next( TILDE_PATTERN );
             estNasal = true;
+        } catch ( NoSuchElementException e ) {
+        }
+
+        try {
+            voyelle2 = API_Voyelle.lire( scanner );
         } catch ( NoSuchElementException e ) {
         }
 
@@ -156,7 +166,7 @@ public class VoyelleFrancais {
     @Override
     public String toString() {
         return "" + ( null == semiVoyelle ? "" : semiVoyelle )
-                + voyelle
-                + ( nasal ? Character.toString( TILDE_CODE_POINT ) : "" );
+                + ( nasal ? Character.toString( TILDE_CODE_POINT ) : "" )
+                + voyelle;
     }
 }
