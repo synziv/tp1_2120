@@ -58,9 +58,16 @@ public class Principal {
      */
     public static void main( String [] args ) {
         // cette partie du code lie les entrées.
+<<<<<<< Updated upstream:Principal.java
         Scanner scanner = new Scanner( System.in );
         String nomFichier = demanderNomFichier( scanner );
         int nombreDeSyllabes = demanderNombreDeSyllabe( scanner );
+=======
+        Scanner scanner = new Scanner(System.in);
+        String nomFichier = "test.txt";//demanderNomFichier(scanner);
+        int nombreDeSyllabes = 6;//demanderNombreDeSyllabe(scanner);
+
+>>>>>>> Stashed changes:INF2120/API/Principal.java
 
         scanner.close();
 

@@ -67,6 +67,126 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
         }
     }
 
+<<<<<<< Updated upstream:TexteSonore.java
+=======
+    /**
+     * Calcule l'occurence de chacune des syllabes du TexteSonore.
+     *
+     * Utilise la méthode occurenceSyllabe de SyllabeFrancais
+     *
+     */
+    public void occurenceSyllabes(){
+        for(int i = 0; i < size(); ++i){
+            get(i).occurenceSyllabe(this);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Copie le texte sonore dans un nouveau texte sonore.
+     * @return Une copie du textesonore
+     */
+    public TexteSonore copier(){
+        TexteSonore copie = new TexteSonore();
+            copie.addAll(this);
+        return copie;
+    }
+
+    /**
+     * Copie ce TexteSonore en éliminant les doublons.
+     *
+     * Cela facilite la comparaison de distance entre chacune des syllabes.
+     *
+     * @return Une copie du TexteSonore sans doublon.
+     */
+    public void eliminerDoublon() {
+
+        TexteSonore copie;
+
+        copie = copier();
+
+        for(int i = 0; i < this.size(); ++i){
+            for(int j = 0; j < copie.size(); ++j){
+                if(this.get(i).estPareille(copie.get(j))){
+                    copie.remove(j);
+                }
+            }
+            copie.add(this.get(i));
+        }
+        sansDoublon = copie;
+    }
+
+    /**
+     * Compte le nombre de syllabes différentes dans le texteSonore
+     *
+     * @return Le .size() du TexteSonore sansDoublon.
+     */
+    public int nombreSyllabesDifferentes(){
+        return sansDoublon.size();
+    }
+
+
+    /**
+     * Compte le nombre de syllabes différentes dans le texteSonore
+     *
+     * @return Le .size() du TexteSonore sansDoublon.
+     */
+    public void reduire(){
+
+        SyllabeFrancais syllabe1 = sansDoublon.get(0);
+        SyllabeFrancais syllabe2 = sansDoublon.get(1);
+        int distance = 42;
+
+        for(int i = 0; i < sansDoublon.size(); ++i){
+            for(int j = 0; j < sansDoublon.size(); ++j){
+                if(!sansDoublon.get(i).estPareille(sansDoublon.get(j))){
+                    if(sansDoublon.get(i).calculDistance(sansDoublon.get(j)) <= distance){
+                        syllabe1 = sansDoublon.get(i);
+                        syllabe2 = sansDoublon.get(j);
+                    }
+                }
+            }
+        }
+        echanger(syllabe1, syllabe2);
+    }
+
+    public void echanger(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        SyllabeFrancais syllabeGardee;
+        SyllabeFrancais syllabeChangee;
+
+        if(syllabe1.getNombreOccurences()>syllabe2.getNombreOccurences()){
+            syllabeGardee = syllabe1;
+            syllabeChangee = syllabe2;
+        }else{
+            syllabeGardee = syllabe2;
+            syllabeChangee = syllabe1;
+        }
+
+        for(int i = 0; i <size(); ++i){
+            if(this.get(i).estPareille(syllabeChangee)){
+                this.set(i,syllabeGardee);
+            }
+        }
+    }
+
+
+>>>>>>> Stashed changes:INF2120/API/TexteSonore.java
 
     /**
      * Construit une chaîne de caractères contenant la suite de syllabe représenté par les symboles de l'API.

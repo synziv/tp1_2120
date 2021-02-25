@@ -46,9 +46,24 @@ public class ConsonneFrancais {
     public ConsonneFrancais( API_Consonne consonne1, API_Consonne consonne2 ) {
         this.consonne1 = consonne1;
         this.consonne2 = consonne2;
+
     }
 
+    /**
+     * Calcule la distance entre le groupe de consonne de l'instance et un autre groupe de consonne
+     * @param cf1 ConsonneFrancais avec laquelle calculer la distance de l'instance
+     * @return un int de la distance entre les 2 groupes de consonne
+     * */
+    public int calculDistanceGroupeConsonne(ConsonneFrancais cf1){
+        int distanceEntreCf = this.consonne1.calculDistanceConsonne(cf1.consonne1);
 
+        if(cf1.consonne2 != null && this.consonne2 != null)
+            distanceEntreCf += this.consonne2.calculDistanceConsonne(cf1.consonne2);
+        else
+            distanceEntreCf+=6;
+
+        return  distanceEntreCf;
+    }
 
     /**
      * Lit un groupe de consonnes dans le {@code Scanner}.

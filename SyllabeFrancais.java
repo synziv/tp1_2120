@@ -33,6 +33,7 @@ public class SyllabeFrancais {
     protected ConsonneFrancais coda = null;
 
 
+
     /**
      * Construit une syllabe avec un noyau seulement.
      *
@@ -80,7 +81,6 @@ public class SyllabeFrancais {
         this.coda = coda;
     }
 
-
     /**
      * Lit une syllabe dans le {@code Scanner}.
      *
@@ -114,6 +114,172 @@ public class SyllabeFrancais {
     }
 
 
+<<<<<<< Updated upstream:SyllabeFrancais.java
+=======
+
+    /**
+     * Compare l'attaque entre 2 syllabes en vérifiant si la consonne1 et la consonne2 sont égales.
+     *
+     * Permet de contourner le @NullPointerException lancé par la méthode .equals().
+     *
+     * @param syllabe1 instance SyllabeFrancais à comparer avec syllabe2
+     * @param syllabe2 instance SyllabeFrancais à comparer avec syllabe1
+     *
+     * @return true si les 2 consonnes sont les mêmes dans les 2 syllabes
+     */
+    private boolean comparaisonAttaque(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        boolean estPareil = false;
+        boolean consonne1Pareille = false;
+        boolean consonne2Pareille = false;
+
+        if(syllabe1.attaque != null && syllabe2.attaque != null){
+
+            consonne1Pareille = syllabe1.attaque.consonne1.equals(syllabe2.attaque.consonne1);
+
+            if(syllabe1.attaque.consonne2 != null && syllabe2.attaque.consonne2 != null){
+                consonne2Pareille = syllabe1.attaque.consonne2.equals(syllabe2.attaque.consonne2);
+            }else{
+                consonne2Pareille = (syllabe1.attaque.consonne2 == null && syllabe2.attaque.consonne2 == null);
+            }
+            estPareil = consonne1Pareille && consonne2Pareille;
+
+
+        }else {
+            estPareil = (syllabe1.attaque == null && syllabe2.attaque == null);
+        }
+        return estPareil;
+    }
+
+    /**
+     * Compare le noyau de 2 syllabes en vérifiant si la voyelle et la semiVoyelle sont égales, et si
+     * elles ont la même nasalité.
+     *
+     * Permet de contourner le @NullPointerException lancé par la méthode .equals().
+     *
+     * @param syllabe1 instance SyllabeFrancais à comparer avec syllabe2
+     * @param syllabe2 instance SyllabeFrancais à comparer avec syllabe1
+     *
+     * @return true si les 2 consonnes sont les mêmes dans les 2 syllabes
+     */
+    private boolean comparaisonNoyau(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        boolean estPareil = false;
+        boolean voyellePareille = false;
+        boolean semiVoyellePareille = false;
+        boolean memeNasalite = false;
+
+        voyellePareille = (syllabe1.noyau.voyelle.equals(syllabe2.noyau.voyelle));
+
+        if(syllabe1.noyau.semiVoyelle != null && syllabe2.noyau.semiVoyelle != null){
+            semiVoyellePareille = syllabe1.noyau.semiVoyelle.equals(syllabe2.noyau.semiVoyelle);
+        }else{
+            semiVoyellePareille = (syllabe1.noyau.semiVoyelle == null && syllabe2.noyau.semiVoyelle == null);
+        }
+
+        memeNasalite = ((syllabe1.noyau.estNasal() && syllabe2.noyau.estNasal()) ||
+                !syllabe1.noyau.estNasal() && !syllabe2.noyau.estNasal());
+
+
+        estPareil = memeNasalite && voyellePareille && semiVoyellePareille;
+
+        return estPareil;
+    }
+
+    /**
+     * Compare le coda entre 2 syllabes en vérifiant si la consonne1 et la consonne2 sont égales.
+     *
+     * Permet de contourner le @NullPointerException lancé par la méthode .equals().
+     *
+     * @param syllabe1 instance SyllabeFrancais à comparer avec syllabe2
+     * @param syllabe2 instance SyllabeFrancais à comparer avec syllabe1
+     *
+     * @return true si les 2 consonnes sont les mêmes dans les 2 syllabes
+     */
+    private boolean comparaisonCoda(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+
+        boolean estPareil = false;
+        boolean consonne1Pareille = false;
+        boolean consonne2Pareille = false;
+
+        if(syllabe1.coda != null && syllabe2.coda != null){
+
+            consonne1Pareille = syllabe1.coda.consonne1.equals(syllabe2.coda.consonne1);
+
+            if(syllabe1.coda.consonne2 != null && syllabe2.coda.consonne2 != null){
+                consonne2Pareille = syllabe1.coda.consonne2.equals(syllabe2.coda.consonne2);
+            }else{
+                consonne2Pareille = (syllabe1.coda.consonne2 == null && syllabe2.coda.consonne2 == null);
+            }
+
+            estPareil = consonne1Pareille && consonne2Pareille;
+
+        }else {
+            estPareil = (syllabe1.coda == null && syllabe2.coda == null);
+        }
+
+        return estPareil;
+    }
+
+    /**
+     * Calcule le nombre d'occurence de la syllabe dans un TexteSonore{@code texte}
+     *
+     * Utilise la méthode estPareille. Si la syllabe est pareille, this.nombreOccurences
+     * est incremente.
+     *
+     * @param texte Le TexteSonore dans lequel on compte.
+     */
+
+    public void occurenceSyllabe(TexteSonore texte){
+
+           for(int i = 0; i < texte.size(); ++i){
+               if(this.estPareille(texte.get(i))){
+                   nombreOccurences ++;
+               }
+           }
+    }
+
+
+    /**
+     * Compare les deux syllabes prises en argument pour s'assurer qu'elles sont pareilles.
+     *
+     * Utilise les méthodes comparaisonAttaque, comparaisonCoda et comparaisonNoyau
+     *
+     * @param syllabe Syllabe avec laquelle comparer avec
+     * @return true si l'attaque, le noyau et le coda sont identiques.
+     */
+    public boolean estPareille(SyllabeFrancais syllabe){
+        return comparaisonAttaque(this, syllabe)&& comparaisonCoda(this, syllabe) &&
+                comparaisonNoyau(this, syllabe);
+    }
+
+    /**
+     * Calcule la distance entre la syllabe de l'instance et une autre instance de SyllabeFrancais
+     * @param s1 SyllabeFrancais avec laquelle calculer la distance de l'instance
+     * @return un int de la distance entre les 2 syllabes
+     * */
+    public int calculDistance(SyllabeFrancais s1){
+        //calule la distance entre 2 attaques
+        int distanceAttaque=0;
+        int distanceNoyau= this.noyau.calculDistanceGroupeVoyelle(s1.noyau);
+        int distanceCoda=0;
+        if(s1.attaque!=null && this.attaque!=null)
+            distanceAttaque = this.attaque.calculDistanceGroupeConsonne(s1.attaque);
+        else{
+            if(s1.attaque!=null && this.attaque==null || s1.attaque==null && this.attaque!=null)
+                distanceAttaque=42;
+        }
+        if(s1.coda!=null && this.coda!=null)
+            distanceCoda = this.coda.calculDistanceGroupeConsonne(s1.coda);
+        else{
+            if(s1.coda!=null && this.coda==null || s1.coda==null && this.coda!=null)
+                distanceCoda=42;
+        }
+        return distanceAttaque + 2*distanceNoyau + distanceCoda;
+    }
+
+
+>>>>>>> Stashed changes:INF2120/API/SyllabeFrancais.java
     /**
      * retourne une chaîne de caractère composée des phonèmes de la syllabe.
      *
