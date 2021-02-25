@@ -113,15 +113,10 @@ public class VoyelleFrancais {
      * @exception NoSuchElementException s'il n'y a pas de {@code API_Voyelle} valide.
      * @exception IllegalStateException si le {@code Scanner} est fermé.
      */
-    public static VoyelleFrancais lire( Scanner scanner ) {
-        API_Voyelle voyelle = API_Voyelle.lire( scanner );
+    public static VoyelleFrancais lire(Scanner scanner ) {
+        API_Voyelle voyelle = null;
         API_Voyelle voyelle2 = null;
         boolean estNasal = false;
-
-        try {
-            voyelle2 = API_Voyelle.lire( scanner );
-        } catch ( NoSuchElementException e ) {
-        }
 
         try {
             scanner.next( TILDE_PATTERN );
@@ -129,10 +124,25 @@ public class VoyelleFrancais {
         } catch ( NoSuchElementException e ) {
         }
 
+        voyelle = API_Voyelle.lire( scanner );
+
+        try {
+            scanner.next( TILDE_PATTERN );
+            estNasal = true;
+        } catch ( NoSuchElementException e ) {
+        }
+
+        try {
+            voyelle2 = API_Voyelle.lire( scanner );
+        } catch ( NoSuchElementException e ) {
+        }
+
         return null == voyelle2
                 ? new VoyelleFrancais( voyelle, estNasal )
                 : new VoyelleFrancais( voyelle, voyelle2, estNasal );
     }
+
+
 
 
     /**
@@ -143,7 +153,8 @@ public class VoyelleFrancais {
     @Override
     public String toString() {
         return "" + ( null == semiVoyelle ? "" : semiVoyelle )
+                + ( nasal ? Character.toString( TILDE_CODE_POINT ) : "" )
                 + voyelle
-                + ( nasal ? Character.toString( TILDE_CODE_POINT ) : "" );
+                ;
     }
 }

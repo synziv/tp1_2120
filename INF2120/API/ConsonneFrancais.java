@@ -79,6 +79,7 @@ public class ConsonneFrancais {
     }
 
 
+
     /**
      * retourne une chaîne de caractère composée des consonnes du groupe.
      *
@@ -88,4 +89,6 @@ public class ConsonneFrancais {
     public String toString() {
         return "" + consonne1 + ( null == consonne2 ? "" : consonne2 );
     }
+
+
 }

@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
  *
  * @since 15
  */
+
+
 public enum API_Consonne {
     API_101( 0x0070, ModeArticulation.OCCLUSIF, PointArticulationConsonne.BILABIAL, Phonation.SOURDE,
             Cavite.ORALE, Ecoulement.CENTRALE, Flux.PULMONAIRE ),
