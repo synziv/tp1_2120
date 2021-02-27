@@ -5,8 +5,8 @@ import java.util.*;
 /**
  * Écrivez vos nom ici :
  *
- * @nom
- * @code_permanent
+ * @nom Félix Paradis
+ * @code_permanent PARF04119608
  *
  * @nom
  * @code_permanent
@@ -68,35 +68,24 @@ public class Principal {
         TexteSonore texteSonore = new TexteSonore(nomFichier);
 
         // placer vos actions ici :
-
-
-
-        //(while texteSonore.nombreSyllabes differentes != nombreDeSyllabes....)
         System.out.println("\n\nTexte sonore original: " + texteSonore);
 
-        // Calcul de l'occurence pour chacune des syllabes
         texteSonore.occurenceSyllabes();
-
-        // Création d'un nouveau Texte éliminant les doublons
         texteSonore.eliminerDoublon();
-        texteSonore.reduire();
 
-        // Print du sansDoublon, et du nombre de syllabes différentes
-        System.out.println("Texte sans doublon: " + texteSonore.sansDoublon);
         System.out.println("Nombre syllabes distinctes: " + texteSonore.nombreSyllabesDifferentes());
-        System.out.println("Occurence de chacune d'entre elles: ");
-        for(int i = 0; i < texteSonore.sansDoublon.size(); ++i){
-            System.out.println(texteSonore.sansDoublon.get(i)+": "+texteSonore.sansDoublon.get(i).getNombreOccurences());
+
+        // Boucle de réduction du texte
+        while(texteSonore.nombreSyllabesDifferentes() > nombreDeSyllabes) {
+            texteSonore.reduire();
+            texteSonore.occurenceSyllabes();
+            texteSonore.eliminerDoublon();
         }
-
-
-
-
 
         // cette partie du code affiche les résultats, modifier au besoin.
         System.out.println("\n\nRÉSULTATS : ");
         System.out.println(texteSonore);
-        System.out.println("Nombre de syllabe dans le nouveau txt: " + nombreDeSyllabes);
+        System.out.println("Nombre de syllabes dans le nouveau texte: " + texteSonore.nombreSyllabesDifferentes());
     }
 }
 

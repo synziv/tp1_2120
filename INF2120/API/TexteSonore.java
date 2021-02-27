@@ -44,7 +44,10 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
         scanner.close();
     }
 
-    public TexteSonore sansDoublon;
+    /**
+     * Sert à stocker les syllabes d'un texte sonore sans les doublons
+     */
+    private TexteSonore sansDoublon;
 
 
     /**
@@ -81,20 +84,6 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Copie le texte sonore dans un nouveau texte sonore.
      * @return Une copie du textesonore
@@ -106,28 +95,30 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
     }
 
     /**
-     * Copie ce TexteSonore en éliminant les doublons.
+     * Ajoute une seule copie de chaque syllabe du TexteSonore dans le champ
+     * sansDoublon de cette même classe.
      *
      * Cela facilite la comparaison de distance entre chacune des syllabes.
-     *
-     * @return Une copie du TexteSonore sans doublon.
      */
     public void eliminerDoublon() {
 
         TexteSonore copie;
-
         copie = copier();
+        int occurence;
 
-        for(int i = 0; i < this.size(); ++i){
-            for(int j = 0; j < copie.size(); ++j){
-                if(this.get(i).estPareille(copie.get(j))){
-                    copie.remove(j);
+            for (int i = 0; i < this.size(); ++i) {
+                occurence = 0;
+                for (int j = 0; j < copie.size(); ++j) {
+                    if (this.get(i).estPareille(copie.get(j))) {
+                        occurence ++;
+                        if(occurence == 2)
+                        copie.remove(j);
+                    }
                 }
             }
-            copie.add(this.get(i));
-        }
         sansDoublon = copie;
     }
+
 
     /**
      * Compte le nombre de syllabes différentes dans le texteSonore
@@ -140,9 +131,12 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
 
 
     /**
-     * Compte le nombre de syllabes différentes dans le texteSonore
+     * Réduit le nombre de syllabes distinctes d'un TexteSonore en trouvant la paire de
+     * syllabes les plus rapprochées en terme de distance booléenne.
      *
-     * @return Le .size() du TexteSonore sansDoublon.
+     * Une fois les deux syllabes trouvées, la méthode remplacerSyllabe est appelée avec ces deux
+     * syllabes en paramètre.
+     *
      */
     public void reduire(){
 
@@ -156,14 +150,22 @@ public class TexteSonore extends ArrayList< SyllabeFrancais > {
                     if(sansDoublon.get(i).calculDistance(sansDoublon.get(j)) <= distance){
                         syllabe1 = sansDoublon.get(i);
                         syllabe2 = sansDoublon.get(j);
+                        distance = sansDoublon.get(i).calculDistance(sansDoublon.get(j));
                     }
                 }
             }
         }
-        echanger(syllabe1, syllabe2);
+        remplacerSyllabe(syllabe1, syllabe2);
     }
 
-    public void echanger(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
+    /**
+     * Remplace une syllabe par une autre dans un TexteSonore.
+     *
+     * Vérifie le nombre d'occurences de chacune des 2 syllabes et
+     * remplace celle qui a le moins d'occurence par celle qui en a le plus.
+     *
+     */
+    public void remplacerSyllabe(SyllabeFrancais syllabe1, SyllabeFrancais syllabe2){
 
         SyllabeFrancais syllabeGardee;
         SyllabeFrancais syllabeChangee;

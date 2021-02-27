@@ -232,7 +232,7 @@ public class SyllabeFrancais {
      * Calcule le nombre d'occurence de la syllabe dans un TexteSonore{@code texte}
      *
      * Utilise la méthode estPareille. Si la syllabe est pareille, this.nombreOccurences
-     * est incremente.
+     * est incrementée.
      *
      * @param texte Le TexteSonore dans lequel on compte.
      */
@@ -252,7 +252,7 @@ public class SyllabeFrancais {
      *
      * Utilise les méthodes comparaisonAttaque, comparaisonCoda et comparaisonNoyau
      *
-     * @param syllabe Syllabe avec laquelle comparer avec
+     * @param syllabe Syllabe avec laquelle comparer.
      * @return true si l'attaque, le noyau et le coda sont identiques.
      */
     public boolean estPareille(SyllabeFrancais syllabe){
